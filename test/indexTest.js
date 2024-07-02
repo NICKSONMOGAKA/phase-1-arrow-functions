@@ -1,32 +1,22 @@
-require ( './helpers.js' );
+const { expect } = require('chai');
+const { divide, square, add } = require('../index.js');
 
-describe("index.js", () => {
-  it("has a function expression called divide", () => {
-    expect(divide).to.exist
-  })
+describe('index.js', () => {
+  describe('has a function expression called divide', () => {
+    it('divide divides 2000 by 100', () => {
+      expect(divide(2000, 100)).to.equal(20);
+    });
+  });
 
-  it("divide divides 2000 by 100", () => {
-    let a = 2000
-    let b = 100
-    expect(divide(a,b)).to.equal(a/b)
-  })
+  describe('has an arrow function called square', () => {
+    it('square arrow function takes one parameter and multiplies it times itself', () => {
+      expect(square(5)).to.equal(25);
+    });
+  });
 
-  it("has an arrow function called square", () => {
-    expect(square).to.exist
-  })
-
-  it("square arrow function takes one parameter and multiplies it times itself", () => {
-    let x = 2
-    expect(square(x)).to.equal(4)
-  })
-
-  it("has an arrow function called add", () => {
-    expect(add).to.exist
-  })
-
-  it("add arrow function takes two parameters and adds them together", () => {
-    let a = 3
-    let b = 4
-    expect(add(a,b)).to.equal(a+b)
-  })
-})
+  describe('has an arrow function called add', () => {
+    it('add arrow function takes two parameters and adds them together', () => {
+      expect(add(2, 3)).to.equal(5);
+    });
+  });
+});
